@@ -1,0 +1,4 @@
+  [4;36;1mDog Create (16.9ms)[0m   [0;1mINSERT INTO "dogs" ("name", "created_at", "updated_at", "age") VALUES('lassie', '2010-08-05 13:55:14', '2010-08-05 13:55:14', 1)[0m
+  [4;35;1mDog Create (0.6ms)[0m   [0mINSERT INTO "dogs" ("name", "created_at", "updated_at", "age") VALUES('lassie', '2010-08-05 13:55:14', '2010-08-05 13:55:14', 1)[0m
+  [4;36;1mDog Create (0.3ms)[0m   [0;1mINSERT INTO "dogs" ("name", "created_at", "updated_at", "age") VALUES('lassie', '2010-08-05 13:55:25', '2010-08-05 13:55:25', 1)[0m
+  [4;35;1mDog Create (0.3ms)[0m   [0mINSERT INTO "dogs" ("name", "created_at", "updated_at", "age") VALUES('lassie', '2010-08-05 13:55:25', '2010-08-05 13:55:25', 1)[0m
