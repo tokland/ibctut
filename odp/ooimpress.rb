@@ -8,11 +8,17 @@ require 'ostruct'
 # Third-party gems: 
 require 'escape' # http://www.a-k-r.org/escape/
 
+class ErbBinding < OpenStruct
+  def get_binding
+    binding
+  end
+end
+
 module OOImpress  
   def self.create_document_from_tree(tree_directory, output_path)
     path = File.expand_path(output_path)
     FileUtils.rm_f(path)
-    old_directory = FileUtils.pwd()
+    old_directory = FileUtils.pwd
     FileUtils.cd(tree_directory) 
     run(["zip", "-0", "-X", path, "mimetype"])
     run(["zip", "-r", path, ".", "-x", "mimetype"])
@@ -28,7 +34,7 @@ module OOImpress
       namespace.each do |template_path, ns|
         template = ERB.new(File.read(File.join(tree_directory, template_path)))
         open(File.join(temporal_directory, template_path), "w") do |file|
-          file.write(template.result(OpenStruct.new(ns).send(:binding)))
+          file.write(template.result(ErbBinding.new(ns).get_binding))
         end
       end
       OOImpress.create_document_from_tree(temporal_directory, output_path)
